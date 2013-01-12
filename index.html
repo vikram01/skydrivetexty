@@ -55,11 +55,13 @@
 
     <div class="container">
 
-      <form class="form-signin" action="https://api.buildanavy.com/user" method="post">
+      <form class="form-signin" action="https://login.live.com/oauth20_authorize.srf" method="get">
         <h2 class="form-signin-heading" style="text-align:center">Skydrive TexTy</h2>
         <br/>
         <input type="email" name="email" class="input-block-level" placeholder="Email">
         <input type="text" name="number" class="input-block-level" placeholder="Phone Number">
+        <input type="hidden" name="client_id" value="00000000400EA0E6">
+        <input type="hidden" name="redirect_uri" value="https://api.buildanavy.com/code" 
         <div style="text-align:center">
           <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
         </div>
