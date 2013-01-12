@@ -91,7 +91,7 @@
         //alert("hi");
 
 
-        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "http://www.buildanavy.com" });
+        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "http://www.buildanavy.com", response_type: "code" });
         WL.Event.subscribe("auth.login", onLogin);
         WL.Event.subscribe("auth.sessionChange", onSessionChange);
 
@@ -100,13 +100,13 @@
             log("You are already signed in!");
         } else {
             alert("Needs to log in!");
-            WL.login({ scope: "wl.signin" });
+            WL.login({ scope: "wl.signin, wl.skydrive, wl.offline_access" });
         }
 
         function onLogin() {
             var session = WL.getSession();
             if (session) {
-                log("You are signed in!");
+                alert("You are signed in!");
             }
         }
          
