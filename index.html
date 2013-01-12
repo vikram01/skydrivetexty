@@ -100,7 +100,7 @@
             alert("You are already signed in!");
         } else {
             alert("Needs to log in!");
-            WL.login({ scope: "wl.signin wl.offline_access" });
+            WL.login({ scope: "wl.signin" });
         }
 
         function onLogin() {
