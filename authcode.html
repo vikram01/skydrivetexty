@@ -63,7 +63,7 @@
         <input type="text" name="challenge" class="input-block-level" placeholder="Validation Code" id="challengeInput" required>
 
         <div style="text-align:center">
-          <button class="btn btn-large btn-primary" onclick="submitChallengeRequest()">Confirm Number</button>
+          <button class="btn btn-large btn-primary" onclick="submitChallengeRequest();return false">Confirm Number</button>
         </div>
       </form>
 
@@ -96,7 +96,7 @@
         $.ajax({
           type: "POST",
           data: {challenge: $("#challengeInput").val()},
-          url: "www.buildanavy.com/user",
+          url: "http://www.buildanavy.com/user",
           success: function success() {
             alert("Number confirmed! You can now send messages to your skydrive");
           },
