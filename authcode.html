@@ -61,6 +61,7 @@
         <h2 class="form-signin-heading" style="text-align:center" id="confirmationHeaderText">Confirmation</h2>
         <br/>
         <input type="text" name="challenge" class="input-block-level" placeholder="Validation Code" id="challengeInput" required>
+        <div class="alert alert-success" id="successMessage"></div>
 
         <div style="text-align:center">
           <button class="btn btn-large btn-primary" onclick="submitChallengeRequest();return false" id="confirmButton">Confirm Number</button>
@@ -98,10 +99,12 @@
           data: {challenge: $("#challengeInput").val()},
           url: "https://api.buildanavy.com/user",
           success: function success() {
-            alert("Number confirmed! You can now send messages to your skydrive");
+            //alert("Number confirmed! You can now send messages to your skydrive");
             $("#challengeInput").val('');
             $("#confirmButton").text("Congratulations!");
             $("#confirmationHeaderText").text("Success!");
+            $("#challengeInput").hide();
+            $("successMessage").append("Number confirmed! You can now send messages to your skydrive.");
             $("#confirmButton").addClass("btn-success");
             $("body").css("background","url(http://farm9.staticflickr.com/8282/7874109806_756828bf0e_b.jpg)");
             $("body").css("background-size","cover");
