@@ -93,7 +93,7 @@
         
         alert("Challenge input: "+$("#challengeInput").val());
 
-        var jqxhr = $.post("/user", {challenge:$("#challengeInput").val()}, function() {
+        var jqxhr = $.post("www.buildanavy.com/user", {challenge:$("#challengeInput").val()}, function() {
             alert("success");
           })
           .success(function() { alert("second success"); })
