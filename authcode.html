@@ -57,21 +57,13 @@
 
     <div class="container">
 
-      <form class="form-signin" id="signin" action="https://login.live.com/oauth20_authorize.srf" method="get">
-        <h2 class="form-signin-heading" style="text-align:center">Skydrive TexTy</h2>
+      <form class="form-signin" id="signin" action="./user" method="post">
+        <h2 class="form-signin-heading" style="text-align:center">Confirmation</h2>
         <br/>
-        <input type="email" name="email" class="input-block-level" placeholder="Skydrive Email (foo@live.com)" id="emailInput" required>
+        <input type="text" name="challenge" class="input-block-level" placeholder="Validation Code" id="challengeInput" required>
 
-        <span></span><input type="text" name="number" class="input-block-level" placeholder="Phone Number (+12223334444)" id="numberInput" required>
-
-
-        <input type="hidden" name="client_id" value="00000000400EA0E6">
-        <input type="hidden" name="redirect_uri" value="http://www.buildanavy.com/user/code">
-        <input type="hidden" name="scope" value="wl.basic wl.offline_access wl.skydrive wl.skydrive_update wl.signin">
-        <input type="hidden" name="response_type" value="code">
-        <input type="hidden" name="state" value="">
         <div style="text-align:center">
-          <button class="btn btn-large btn-primary" onclick="submitAccessRequest()">Sign Up</button>
+          <button class="btn btn-large btn-primary" onclick="submitChallengeRequest()">Confirm Number</button>
         </div>
       </form>
 
@@ -87,19 +79,17 @@
     <script type="text/javascript">
 
      function checkFormFilled(){
-        if($("#emailInput").val() == "" || $("#numberInput").val() == "")
+        if($("#challengeInput").val() == "")
         {
           return false;
         }
       }
 
-      function submitAccessRequest() {
+      function submitChallengeRequest() {
         if(checkFormFilled() == false)
         {
           return false;
         }
-        
-        $("#signin > input[name=state]").val($("#signin > input[name=number]").val() + " " + $("#signin > input[name=email]").val());
         $("#signin").submit();
       }
 
