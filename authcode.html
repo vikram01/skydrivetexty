@@ -78,6 +78,7 @@
     <script src="http://js.live.net/v5.0/wl.js"></script>
 
     <script type="text/javascript">
+      $("#successMessage").hide();
 
      function checkFormFilled(){
         if($("#challengeInput").val() == "")
@@ -104,7 +105,8 @@
             $("#confirmButton").text("Congratulations!");
             $("#confirmationHeaderText").text("Success!");
             $("#challengeInput").hide();
-            $("successMessage").append("Number confirmed! You can now send messages to your skydrive.");
+            $("#successMessage").append("Number confirmed! You can now send messages to your skydrive.");
+            $("#successMessage").fadeIn();
             $("#confirmButton").addClass("btn-success");
             $("body").css("background","url(http://farm9.staticflickr.com/8282/7874109806_756828bf0e_b.jpg)");
             $("body").css("background-size","cover");
