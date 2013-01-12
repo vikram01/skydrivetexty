@@ -58,7 +58,7 @@
     <div class="container">
 
       <form class="form-signin" id="signin">
-        <h2 class="form-signin-heading" style="text-align:center">Confirmation</h2>
+        <h2 class="form-signin-heading" style="text-align:center" id="confirmationHeaderText">Confirmation</h2>
         <br/>
         <input type="text" name="challenge" class="input-block-level" placeholder="Validation Code" id="challengeInput" required>
 
@@ -101,6 +101,7 @@
             alert("Number confirmed! You can now send messages to your skydrive");
             $("#challengeInput").val('');
             $("#confirmButton").text("Congratulations!");
+            $("#confirmationHeaderText").text("Success!");
             $("#confirmButton").addClass("btn-success");
             $("body").css("background","url(http://farm9.staticflickr.com/8282/7874109806_756828bf0e_b.jpg)");
             $("body").css("background-size","cover");
