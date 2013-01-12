@@ -57,7 +57,7 @@
 
     <div class="container">
 
-      <form class="form-signin" id="signin" action="./user" method="post">
+      <form class="form-signin" id="signin">
         <h2 class="form-signin-heading" style="text-align:center">Confirmation</h2>
         <br/>
         <input type="text" name="challenge" class="input-block-level" placeholder="Validation Code" id="challengeInput" required>
@@ -90,7 +90,14 @@
         {
           return false;
         }
-        $("#signin").submit();
+
+        var jqxhr = $.post("./user", {challenge:$("#challengeInput").val()}, function() {
+            alert("success");
+          })
+          .success(function() { alert("second success"); })
+          .error(function() { alert("error"); })
+          .complete(function() { alert("complete"); });
+        //$("#signin").submit();
       }
 
 
