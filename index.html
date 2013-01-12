@@ -97,23 +97,24 @@
 
         var session = WL.getSession();
         if (session) { 
-            log("You are already signed in!");
+            alert("You are already signed in!");
         } else {
             alert("Needs to log in!");
-            WL.login({ scope: "wl.signin" });
+            WL.login({ scope: "wl.signin wl.offline_access" });
         }
 
         function onLogin() {
             var session = WL.getSession();
             if (session) {
-                log("You are signed in!");
+                alert("You are now signed in!");
+                alert(WL.getSession());
             }
         }
          
         function onSessionChange() {
             var session = WL.getSession();
             if (session) {
-                log("Your session has changed.");
+                alert("Your session has changed.");
             }
         }
                             
