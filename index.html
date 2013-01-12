@@ -91,7 +91,7 @@
         //alert("hi");
 
 
-        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "http://www.buildanavy.com/authreturn.html", response_type: "code" });
+        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "http://www.buildanavy.com/user/code", response_type: "code" });
         WL.Event.subscribe("auth.login", onLogin);
         WL.Event.subscribe("auth.sessionChange", onSessionChange);
 
