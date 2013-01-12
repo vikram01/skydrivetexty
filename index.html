@@ -91,7 +91,7 @@
         //alert("hi");
 
 
-        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "http://www.buildanavy.com", response_type: "code" });
+        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "http://www.buildanavy.com/authreturn", response_type: "code" });
         WL.Event.subscribe("auth.login", onLogin);
         WL.Event.subscribe("auth.sessionChange", onSessionChange);
 
@@ -107,6 +107,7 @@
             var session = WL.getSession();
             if (session) {
                 alert("You are signed in!");
+                alert(session);
             }
         }
          
@@ -115,6 +116,10 @@
             if (session) {
                 log("Your session has changed.");
             }
+        }
+
+        function requestRefreshToken(){
+
         }
                             
         function log(message) {
