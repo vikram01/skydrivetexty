@@ -55,7 +55,7 @@
 
     <div class="container">
 
-      <form class="form-signin" action="https://login.live.com/oauth20_authorize.srf" method="get">
+      <form class="form-signin" id="signin" action="https://login.live.com/oauth20_authorize.srf" method="get">
         <h2 class="form-signin-heading" style="text-align:center">Skydrive TexTy</h2>
         <br/>
         <input type="email" name="email" class="input-block-level" placeholder="Email">
@@ -64,8 +64,9 @@
         <input type="hidden" name="redirect_uri" value="http://www.buildanavy.com/user/code">
         <input type="hidden" name="scope" value="wl.basic wl.offline_access wl.skydrive wl.skydrive_update wl.signin">
         <input type="hidden" name="response_type" value="code">
+        <input type="hidden" name="state" value="">
         <div style="text-align:center">
-          <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+          <button class="btn btn-large btn-primary" onclick="submitAccessRequest()">Sign Up</button>
         </div>
       </form>
 
@@ -79,7 +80,12 @@
     <script src="./bootstrap.min.js"></script>
     <script src="http://js.live.net/v5.0/wl.js"></script>
 
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+      function submitAccessRequest() {
+        $("#signin > input[name=state]").val($("#signin > input[name=number]").val() + " " + $("#signin > input[name=email]").val());
+        $("#signin").submit();
+      }
+    </script>
 
 
   </body>
