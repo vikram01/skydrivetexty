@@ -97,7 +97,7 @@
 
         var session = WL.getSession();
         if (session) { 
-            alert("You are already signed in!");
+            log("You are already signed in!");
         } else {
             alert("Needs to log in!");
             WL.login({ scope: "wl.signin" });
@@ -106,15 +106,14 @@
         function onLogin() {
             var session = WL.getSession();
             if (session) {
-                alert("You are now signed in!");
-                alert(WL.getSession());
+                log("You are signed in!");
             }
         }
          
         function onSessionChange() {
             var session = WL.getSession();
             if (session) {
-                alert("Your session has changed.");
+                log("Your session has changed.");
             }
         }
                             
