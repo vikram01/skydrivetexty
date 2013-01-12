@@ -66,13 +66,11 @@
     <div class="container">
 
       <form class="form-signin" action="./user" method="post">
-        <h2 class="form-signin-heading" style="text-align:center">Sign Up</h2>
-        <input type="text" name="email" class="input-block-level" placeholder="Skydrive Email Address">
-        <input type="password" name="password" class="input-block-level" placeholder="Password">
+        <h2 class="form-signin-heading" style="text-align:center">Skydrive TexTy</h2>
+        <br/>
         <input type="text" name="number" class="input-block-level" placeholder="Phone Number">
-
         <div style="text-align:center">
-          <button class="btn btn-large btn-primary" type="submit">Sign up</button>
+          <button class="btn btn-large btn-primary" onclick="return authUser();">Sign up</button>
         </div>
       </form>
 
@@ -84,20 +82,50 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./Sign in · Twitter Bootstrap_files/jquery.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-transition.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-alert.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-modal.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-dropdown.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-scrollspy.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-tab.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-tooltip.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-popover.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-button.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-collapse.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-carousel.js"></script>
-    <script src="./Sign in · Twitter Bootstrap_files/bootstrap-typeahead.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
+    <script src="./bootstrap.min.js"></script>
     <script src="http://js.live.net/v5.0/wl.js"></script>
+
+    <script type="text/javascript">
+      function authUser(){
+        //alert("hi");
+
+
+        WL.init({ client_id: "00000000400EA0E6", redirect_uri: "/foo" });
+        WL.Event.subscribe("auth.login", onLogin);
+        WL.Event.subscribe("auth.sessionChange", onSessionChange);
+
+        var session = WL.getSession();
+        if (session) { 
+            log("You are already signed in!");
+        } else {
+            alert("Needs to log in!");
+            WL.login({ scope: "wl.signin" });
+        }
+
+        function onLogin() {
+            var session = WL.getSession();
+            if (session) {
+                log("You are signed in!");
+            }
+        }
+         
+        function onSessionChange() {
+            var session = WL.getSession();
+            if (session) {
+                log("Your session has changed.");
+            }
+        }
+                            
+        function log(message) {
+            var child = document.createTextNode(message);
+            var parent = document.getElementById('JsOutputDiv') || document.body;
+            parent.appendChild(child);
+            parent.appendChild(document.createElement("br"));
+        }
+        return false;
+      }
+    </script>
 
   </body>
   <style type="text/css">
