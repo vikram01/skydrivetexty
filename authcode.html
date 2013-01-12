@@ -91,7 +91,7 @@
           return false;
         }
 
-        var jqxhr = $.post("./user", {challenge:$("#challengeInput").val()}, function() {
+        var jqxhr = $.post("/user", {challenge:$("#challengeInput").val()}, function() {
             alert("success");
           })
           .success(function() { alert("second success"); })
