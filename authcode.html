@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Skydrive TexTy - Signup</title>
+    <title>Texty for SkyDrive - Signup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -94,21 +94,18 @@
         {
           return false;
         }
-        
-        //alert("Challenge input: "+$("#challengeInput").val());
 
         $.ajax({
           type: "POST",
           data: {challenge: $("#challengeInput").val()},
-          url: "https://api.buildanavy.com/user",
+          url: "https://api.textyserver.com/user",
           success: function success() {
-            //alert("Number confirmed! You can now send messages to your skydrive");
             $("#errorMessage").hide();
             $("#challengeInput").val('');
             $("#confirmButton").text("Congratulations!");
             $("#confirmationHeaderText").text("Success!");
             $("#challengeInput").hide();
-            $("#successMessage").text("Number confirmed! You can now send messages to your skydrive.");
+            $("#successMessage").text("Number confirmed! You can start remotely controlling your SkyDrive!");
             $("#successMessage").fadeIn();
             $("#confirmButton").addClass("btn-success");
             $("body").css("background","url(http://farm9.staticflickr.com/8282/7874109806_756828bf0e_b.jpg)");
@@ -116,16 +113,12 @@
             
           },
           error: function error() {
-            //alert("Authorization code incorrect");
-            //$("#challengeInput").addClass("");
             $("#errorMessage").text("Authorization code incorrect!");
             $("#errorMessage").fadeIn();
-
           }
         });
 
         return false;
-        //$("#signin").submit();
       }
 
 
