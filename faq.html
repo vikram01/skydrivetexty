@@ -55,29 +55,49 @@
 
   <body>
 
-    <div class="container">
+    <div class="container-fluid">
+  <div class="row-fluid row">
+    <div class="span3">
+      <div class="well sidebar-nav-fixed">
+        <ul class="nav nav-list">
 
-      <form class="form-signin" id="signin" action="https://login.live.com/oauth20_authorize.srf" method="get">
-        <h2 class="form-signin-heading" style="text-align:center">Skydrive TexTy</h2>
-        <br/>
-        <input type="email" name="email" class="input-block-level" placeholder="Skydrive Email (foo@live.com)" id="emailInput" required>
+          <li class="nav-header">Getting Started</li>
+          <li><a href="#faq1">1. Sign Up</a></li>
+          <li><a href="#faq2">2. Verify Code</a></li>
+          <li><a href="#faq3">3. Enjoy TexTy</a></li>
+          <li class="nav-header">FAQ</li>
 
-        <span></span><input type="text" name="number" class="input-block-level" placeholder="Phone Number (+12223334444)" id="numberInput" required>
+          <li><a href="#faq4">1. What is TexTy?</a></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
 
+    <div class="span9 span-fixed-sidebar">
+      <div class="hero-unit">
+        <h3>TexTy FAQ</h3>
+        <p>This page is designed to help you understand TexTy!
+        <h4>Getting Started</h4>
+        <a name="faq1">1. Sign Up</a>
+        <p>Input your Microsoft Skydrive email into the email field. Input your phone number into the number field, including a prefixed country code (+1 if you are in the United States)</p>
+         <a name="faq2">2. Verify Code</a>
+        <p>You will be text-messaged a verification code from TexTy. Enter the 6 character code into the validation field and your account will be confirmed.</p>
+         <a name="faq3">3. Enjoy TexTy</a>
+        <p>You may now interact with the full list of commands that TexTy offers, straight from SMS! Just SMS the number you received your verification code from and your commands will execute on your Skydrive. Enjoy!</p>
 
-        <input type="hidden" name="client_id" value="00000000400EA0E6">
-        <input type="hidden" name="redirect_uri" value="http://www.buildanavy.com/user/code">
-        <input type="hidden" name="scope" value="wl.basic wl.offline_access wl.skydrive wl.skydrive_update wl.signin">
-        <input type="hidden" name="response_type" value="code">
-        <input type="hidden" name="state" value="">
-        <div style="text-align:center">
-          <button class="btn btn-large btn-primary" onclick="submitAccessRequest()">Sign Up</button>
-        </div>
-        <hr>
-        <small class="pull-right"><a href="/faq.html">FAQ</a> • <a href="/privacy.html">Privacy</a></small>
-      </form>
+        <h4>FAQ</h4>
+        <a name="faq4">1. What is TexTy?</a>
+        <p>TexTy is an SMS interface to your Microsoft SkyDrive cloud. It enables you to execute commands by texting a number from your phone without ever launching a browser!</p>
+      </div>
+    </div><!--/span-->
+  </div><!--/row-->
 
-    </div> <!-- /container -->
+  <hr>
+
+  <footer>
+    <p>&copy; Company 2012</p>
+  </footer>
+
+</div><!--/.fluid-container-->
     <div class="footer" style="text-align:center">
       
     </div>
@@ -85,28 +105,6 @@
     <script src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
     <script src="./bootstrap.min.js"></script>
     <script src="http://js.live.net/v5.0/wl.js"></script>
-
-    <script type="text/javascript">
-
-     function checkFormFilled(){
-        if($("#emailInput").val() == "" || $("#numberInput").val() == "")
-        {
-          return false;
-        }
-      }
-
-      function submitAccessRequest() {
-        if(checkFormFilled() == false)
-        {
-          return false;
-        }
-        
-        $("#signin > input[name=state]").val($("#signin > input[name=number]").val() + " " + $("#signin > input[name=email]").val());
-        $("#signin").submit();
-      }
-
-
-    </script>
 
 
   </body>
