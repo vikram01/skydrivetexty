@@ -112,7 +112,9 @@
             $("body").css("background-size","cover");
             
           },
-          error: function error() {
+          error: function error(xhr, status, error) {
+            console.log(status);
+            console.log(xhr);
             $("#errorMessage").text("Authorization code incorrect!");
             $("#errorMessage").fadeIn();
           }
