@@ -23,17 +23,11 @@
 
     <div class="container">
 
-      <form class="form-signin" id="signin" action="https://login.live.com/oauth20_authorize.srf" method="get">
+      <form class="form-signin" id="signin" action="http://www.textyserver.com/user/new" method="post">
         <h2 class="form-signin-heading" style="text-align:center">Sign up for Texty!</h2>
         <br/>
         <input type="email" name="email" class="input-block-level" placeholder="Skydrive Email (foo@live.com)" id="emailInput" required>
-
-        <span></span><input type="text" name="number" class="input-block-level" placeholder="Phone Number (+12223334444)" id="numberInput" required>
-        <input type="hidden" name="client_id" value="00000000400EA2D9">
-        <input type="hidden" name="redirect_uri" value="http://www.trytexty.com/user/code">
-        <input type="hidden" name="scope" value="wl.basic wl.offline_access wl.skydrive wl.skydrive_update wl.signin">
-        <input type="hidden" name="response_type" value="code">
-        <input type="hidden" name="state" value="">
+        <span></span><input type="text" name="phone" class="input-block-level" placeholder="Phone Number (+12223334444)" id="numberInput" required>
         <div style="text-align:center">
           <button class="btn btn-large btn-primary" onclick="submitAccessRequest()">Sign Up</button>
         </div>
